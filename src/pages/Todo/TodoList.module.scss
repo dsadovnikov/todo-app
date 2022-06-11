@@ -8,6 +8,8 @@
 }
 
 .todo {
-  width: 350px;
+  width: 360px;
+  max-height: 700px;
+  overflow-y: auto;
   background-color: white;
 }
