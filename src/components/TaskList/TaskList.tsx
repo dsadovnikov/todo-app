@@ -1,7 +1,6 @@
 import React from 'react';
 import { ITask } from '../../types/Task';
 import Task from '../Task/Task';
-import { nanoid } from 'nanoid';
 import styles from './TaskList.module.scss';
 
 interface TaskListProps {
@@ -16,16 +15,16 @@ const TaskList = ({
   removeTask,
 }: TaskListProps): JSX.Element => {
   return (
-    <div className={styles.list}>
+    <ul className={styles.list} aria-label="add-task-list">
       {list.map((task) => (
         <Task
-          key={nanoid()}
+          key={Math.random().toString(16).slice(2)}
           task={task}
           switchCompeteTask={switchCompeteTask}
           removeTask={removeTask}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 

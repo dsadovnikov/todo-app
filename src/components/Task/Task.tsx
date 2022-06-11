@@ -25,9 +25,10 @@ const Task = ({
     <div
       className={rootClasses.join(' ')}
       onClick={(e) => switchCompeteTask(task)}
+      aria-label="task"
     >
       <div className={styles.mark}>
-        <img className={styles.icon} src={check} width="15px" />
+        <img className={styles.icon} src={check} alt="Выполнено" width="15px" />
       </div>
       <p className={styles.title}>{task.title}</p>
       <Button
@@ -36,6 +37,7 @@ const Task = ({
           e.stopPropagation();
           removeTask(task);
         }}
+        ariaLabel="task-delete-button"
       >
         X
       </Button>

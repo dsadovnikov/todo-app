@@ -12,6 +12,7 @@ interface ButtonProps {
   onClick?: (props: any) => any;
   disabled?: boolean;
   children?: React.ReactNode;
+  ariaLabel?: string;
 }
 
 const Button = ({
@@ -19,6 +20,7 @@ const Button = ({
   onClick,
   disabled,
   children,
+  ariaLabel,
 }: ButtonProps): JSX.Element => {
   return (
     <button
@@ -26,6 +28,7 @@ const Button = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
+      aria-label={ariaLabel}
     >
       {children}
     </button>

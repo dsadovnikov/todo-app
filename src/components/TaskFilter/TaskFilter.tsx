@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TaskStatusFilterType } from '../../types/Task';
 import Button, { ButtonType } from '../ui/Button/Button';
 import styles from './TaskFilter.module.scss';
@@ -13,7 +13,7 @@ const TaskFilter = ({
   filter,
   setFilter,
   removeCompletedTasks,
-}: TaskFilterProps) => {
+}: TaskFilterProps): JSX.Element => {
   const isRadioBtnSelected = (value: string): boolean => {
     return filter === value;
   };
@@ -23,9 +23,9 @@ const TaskFilter = ({
   };
 
   return (
-    <div className={styles.filter}>
+    <div className={styles.filter} aria-label="add-task-filter">
       <div className={styles.controls}>
-        <label className={styles.label}>
+        <label className={styles.label} aria-label="filter-all">
           <input
             className={styles.input}
             type="radio"
@@ -36,7 +36,7 @@ const TaskFilter = ({
           />
           All
         </label>
-        <label className={styles.label}>
+        <label className={styles.label} aria-label="filter-active">
           <input
             className={styles.input}
             type="radio"
@@ -47,7 +47,7 @@ const TaskFilter = ({
           />
           Active
         </label>
-        <label className={styles.label}>
+        <label className={styles.label} aria-label="filter-completed">
           <input
             className={styles.input}
             type="radio"
@@ -59,7 +59,11 @@ const TaskFilter = ({
           Completed
         </label>
       </div>
-      <Button type={ButtonType.button} onClick={(e) => removeCompletedTasks()}>
+      <Button
+        type={ButtonType.button}
+        onClick={(e) => removeCompletedTasks()}
+        ariaLabel="remove-complete-task"
+      >
         Clear completed
       </Button>
     </div>

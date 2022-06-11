@@ -12,3 +12,9 @@ https://dsadovnikov.github.io/todo-app/
 npm i
 npm run build
 ```
+
+### Запустить тесты
+
+```
+npm run test
+```

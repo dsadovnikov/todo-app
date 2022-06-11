@@ -4,11 +4,14 @@ import TaskFilter from '../../components/TaskFilter/TaskFilter';
 import TaskList from '../../components/TaskList/TaskList';
 import { useFilteredTasks } from '../../hooks/useFilteredTasks';
 import { ITask, TaskStatusFilterType } from '../../types/Task';
-import { defaultTaskList } from '../../utils/defaultTaskList';
 import styles from './TodoList.module.scss';
 
-const TodoList = () => {
-  const [tasks, setTasks] = useState<ITask[]>(defaultTaskList);
+interface TodoListProps {
+  taskList: ITask[];
+}
+
+const TodoList = ({ taskList }: TodoListProps): JSX.Element => {
+  const [tasks, setTasks] = useState<ITask[]>(taskList);
   const [filter, setFilter] = useState<string>(TaskStatusFilterType.all);
   const filteredTasks = useFilteredTasks(tasks, filter);
 
