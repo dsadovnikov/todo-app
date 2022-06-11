@@ -1,0 +1,13 @@
+.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding-top: 40px;
+  background-color: rgb(173, 169, 169);
+}
+
+.todo {
+  width: 350px;
+  background-color: white;
+}
